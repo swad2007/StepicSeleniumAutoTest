@@ -19,7 +19,12 @@ def browser(request):
     else:
         raise pytest.UsageError("--browser_name should be chrome or firefox")
 
-    browser.implicitly_wait(5)
+    browser.implicitly_wait(10)
     yield browser
     print("\nquit browser..")
     browser.quit()
+
+
+
+#pytest -s -v --browser_name=firefox section3/params_in_fixture.py
+
