@@ -18,15 +18,6 @@ from selenium.webdriver.common.by import By
 
 
 
-@pytest.fixture(scope="session")
-def browser():
-    print("\nstart browser for test..")
-    browser = webdriver.Chrome()
-    browser.implicitly_wait(15)
-    yield browser
-    print("\nquit browser..")
-    browser.quit()
-
 @pytest.mark.parametrize('num', ["236895","236896","236897","236898","236899","236903","236904","236905"])
 def test_guest_should_see_login_link(browser, num):
     link = f"https://stepik.org/lesson/{num}/step/1"
