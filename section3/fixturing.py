@@ -4,6 +4,10 @@ from selenium import webdriver
 link = "http://selenium1py.pythonanywhere.com/"
 
 
+# pytest -s -v -m smoke section3/fixturing.py
+
+
+
 @pytest.fixture
 def browser():
     print("\nstart browser for test..")
@@ -23,7 +27,7 @@ class TestMainPage1():
         # не передаём как параметр фикстуру prepare_data, но она все равно выполняется
         browser.get(link)
         browser.find_element_by_css_selector("#login_link")
-
+    @pytest.mark.smoke
     def test_guest_should_see_basket_link_on_the_main_page(self, browser):
         browser.get(link)
         browser.find_element_by_css_selector(".basket-mini .btn-group > a")
